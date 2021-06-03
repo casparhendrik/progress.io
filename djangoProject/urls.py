@@ -19,13 +19,11 @@ from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .connector import send_message, make_as_read
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='progress.html')),
-    path('ajax/send-message/', send_message, name='send_message'),
-    path('ajax/make-as-read/', make_as_read, name='make_as_read')
+    path('rooms', include('rooms.urls', namespace='rooms')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
