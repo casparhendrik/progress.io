@@ -12,7 +12,7 @@ db = firestore.client()
 # Create your views here.
 
 def room_view(request):
-    room = request.GET.get('room', '')
+    room = request.POST.get('room', '')
     print(room)
     if room != '':
         room = get_room(room)
