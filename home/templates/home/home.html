@@ -1,5 +1,17 @@
-    {% block content %}
+{%  extends "progress.html" %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block content %}
     <div class="container mt-3 mb-3">
-    <p>Home</p>
+        <form action="." method="POST">{% csrf_token %}
+            <input type="text" name="room" placeholder="Search" />
+        <button type="submit" value="Submit">Submit</button>
+        </form>
     </div>
-    {% endblock content %}
+{% endblock %}
+
+
+
