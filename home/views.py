@@ -6,7 +6,7 @@ from firebase_admin import credentials, firestore
 from djangoProject.forms import HomeForm
 
 
-cred = credentials.Certificate('./djangoProject/firebase_credentials.json')
+cred = credentials.Certificate('./firebase_credentials.json')
 default_app = firebase_admin.initialize_app(cred)
 db = firestore.client()
 # Create your views here.

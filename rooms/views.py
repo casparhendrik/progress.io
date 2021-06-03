@@ -5,15 +5,14 @@ import firebase_admin
 import google.cloud.exceptions
 from firebase_admin import credentials, firestore
 
-cred = credentials.Certificate('')
-default_app = firebase_admin.initialize_app(cred)
+cred = credentials.Certificate('./firebase_credentials.json')
+# default_app = firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 # Create your views here.
 
 def room_view(request):
     room = request.POST.get('room', '')
-    print(room)
     if room != '':
         room = get_room(room)
         databaseCall = room
